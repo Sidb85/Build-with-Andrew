@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Birthday Card Buddy — Themes & Download</title>
+  <style>
+    :root{
+      --bg:#fff7fb;
+      --accent:#ff6fb5;
+      --accent-2:#36c7b8;
+      --gold:#ffd166;
+      --card-bg:#fffdf6;
+      --text:#2b2b2b;
+      --muted:#6b6b6b;
+      --shadow: 0 10px 25px rgba(21,21,21,0.08);
+      --radius:14px;
+    }
+    *{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+    body{
+      margin:0;
+      background: linear-gradient(120deg, rgba(255,111,181,0.06), rgba(54,199,184,0.06));
+      color:var(--text);
+      min-height:100vh;
+      padding:24px;
+    }
+
+    header{
+      text-align:center;
+      margin-bottom:20px;
+    }
+    header h1{
+      margin:0;
+      font-size:32px;
+      letter-spacing:1px;
+      color:var(--accent);
+      text-shadow: 0 2px 0 rgba(255,255,255,0.5);
+    }
+    header p{
+      margin:6px 0 0;
+      color:var(--muted);
+    }
+
+    .container{
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+      max-width:1100px;
+      margin:18px auto;
+    }
+
+    /* left: form */
+    .panel{
+      flex:0 0 340px;
+      background:linear-gradient(180deg,#ffffff,#fff9fb);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,0.03);
+    }
+    .panel h2{margin:0 0 10px;color:var(--accent-2);}
+    .form-row{margin-bottom:12px;}
+    label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted);}
+    input[type="text"], input[type="number"], select {
+      width:100%;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid rgba(0,0,0,0.06);
+      font-size:14px;
+      outline:none;
+      background:#fff;
+    }
+    .controls{
+      display:flex;
+      gap:8px;
+      margin-top:12px;
+    }
+    button{
+      padding:10px 12px;
+      border-radius:10px;
+      border:0;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .btn-create{
+      background:linear-gradient(90deg,var(--accent),#ff9ac8);
+      color:white;
+      flex:1;
+    }
+    .btn-clear{
+      background:var(--gold);
+      color:#6b3b00;
+      flex:0 0 120px;
+    }
+
+    /* right: cards area */
+    .cards-wrap{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      align-items:stretch;
+      min-height:260px;
+    }
+    .cards-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:6px;
+    }
+    .cards-header h3{
+      margin:0;
+      color:var(--accent);
+      font-size:18px;
+    }
+    .cards-area{
+      background:linear-gradient(180deg,#fff, #fffefa);
+      border-radius:12px;
+      padding:18px;
+      min-height:380px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,0.03);
+      overflow:auto;
+    }
+
+    /* each card */
+    .card{
+      width:100%;
+      max-width:520px;
+      margin:0 auto 14px;
+      background:linear-gradient(180deg,var(--card-bg),#fff7ec);
+      border-radius:12px;
+      padding:18px;
+      display:flex;
+      gap:16px;
+      align-items:stretch;
+      box-shadow:0 10px 30px rgba(12,12,12,0.06);
+      position:relative;
+      border:1px solid rgba(0,0,0,0.04);
+      transform-origin:top center;
+      animation:pop .22s ease-out;
+    }
+    @keyframes pop{
+      from{opacity:0; transform:translateY(-6px) scale(.995);}
+      to{opacity:1; transform:none;}
+    }
+    .card .left-fold{
+      width:44px;
+      background:linear-gradient(135deg,var(--accent),#ffd1e8);
+      border-radius:8px;
+      box-shadow:inset -5px 0 12px rgba(255,255,255,0.25);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      padding:6px;
+      flex-shrink:0;
+      font-size:20px;
+    }
+    .card .inner{
+      flex:1;
+      padding:6px 2px;
+      color:var(--text);
+    }
+    .card h4{
+      margin:0 0 8px;
+      font-size:18px;
+      color:var(--accent-2);
+    }
+    .card .meta{
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+    .message{
+      background:linear-gradient(180deg,rgba(255,255,255,0.35),rgba(255,255,255,0.12));
+      border-radius:10px;
+      padding:12px;
+      font-size:15px;
+      line-height:1.45;
+      color:var(--text);
+      border:1px dashed rgba(0,0,0,0.04);
+    }
+
+    .card .ribbon{
+      position:absolute;
+      left:10px;
+      top:-10px;
+      background:linear-gradient(90deg,#ffd166,#ff9a66);
+      padding:6px 12px;
+      border-radius:20px;
+      font-weight:700;
+      font-size:13px;
+      color:#642f00;
+      box-shadow:0 6px 14px rgba(0,0,0,0.08);
+    }
+
+    .muted-small{font-size:12px;color:var(--muted); margin-top:9px; display:flex; justify-content:space-between; align-items:center; gap:8px;}
+    .download-btns{display:flex; gap:8px;}
+    .download-btns button{padding:6px 8px; font-size:13px; border-radius:8px; cursor:pointer; border:1px solid rgba(0,0,0,0.06); background:#fff;}
+    .download-btns button:hover{box-shadow:0 6px 12px rgba(0,0,0,0.04);}
+
+    /* theme preview small swatches in the form */
+    .theme-swatch{display:inline-block;width:28px;height:18px;border-radius:6px; margin-right:8px; vertical-align:middle; border:1px solid rgba(0,0,0,0.06);}
+
+    /* responsive */
+    @media (max-width:880px){
+      .container{flex-direction:column;}
+      .panel{width:100%;}
+      .cards-area{min-height:260px;}
+      .card{max-width:100%;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Birthday Card Buddy!</h1>
+    <p>Create silly, warm, and funny inside-card messages in seconds 🎉 — now with themes & downloads</p>
+  </header>
+
+  <div class="container">
+    <aside class="panel" aria-labelledby="controls-title">
+      <h2 id="controls-title">Make a card</h2>
+
+      <div class="form-row">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="e.g. Maya" />
+      </div>
+
+      <div class="form-row">
+        <label for="age">Age</label>
+        <input id="age" type="number" min="0" placeholder="e.g. 29" />
+      </div>
+
+      <div class="form-row">
+        <label for="hobby">Hobby</label>
+        <input id="hobby" type="text" placeholder="e.g. baking, skateboarding" />
+      </div>
+
+      <div class="form-row">
+        <label for="icon">Card Icon</label>
+        <select id="icon" title="Choose an icon for the card">
+          <option value="🎂">🎂 Cake</option>
+          <option value="🎉">🎉 Party</option>
+          <option value="🎈">🎈 Balloon</option>
+          <option value="🧁">🧁 Cupcake</option>
+          <option value="🎁">🎁 Gift</option>
+          <option value="🕺">🕺 Dance</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="theme">Card Theme
+          <span style="font-size:12px;color:var(--muted)"> (preview swatch)</span>
+        </label>
+        <select id="theme" title="Choose a color theme">
+          <option value="pink" data-swatch="#ffd1e8">Pink ✨</option>
+          <option value="teal" data-swatch="#c6f7f0">Teal 🌀</option>
+          <option value="gold" data-swatch="#fff1c2">Gold 🥳</option>
+          <option value="purple" data-swatch="#eee3ff">Purple 🌈</option>
+        </select>
+      </div>
+
+      <div class="controls">
+        <button class="btn-create" id="createBtn">Create Card</button>
+        <button class="btn-clear" id="clearBtn" title="Clear all cards">Clear All</button>
+      </div>
+
+      <p style="margin-top:12px;font-size:13px;color:var(--muted)">
+        Tip: try short hobbies for funnier lines (e.g. "gardening", "gaming"). After creating, click "Download PNG" or "Download PDF" on a card.
+      </p>
+    </aside>
+
+    <section class="cards-wrap" aria-live="polite">
+      <div class="cards-header">
+        <h3>Card Stack (newest on top)</h3>
+        <div style="font-size:13px;color:var(--muted)">Your cards will appear here</div>
+      </div>
+
+      <div class="cards-area" id="cardsArea">
+        <div style="text-align:center;color:var(--muted);padding-top:30px;">
+          No cards yet — create one on the left!
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Libraries for capturing DOM to canvas + creating PDFs.
+       Using CDNs so you can open the file locally as long as you have internet.
+  -->
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script>
+    /* Beginner-friendly helper functions and comments */
+
+    // ordinal: 1 -> "1st", 2 -> "2nd", 3 -> "3rd", others -> "nth"
+    function ordinal(n){
+      n = Math.abs(n) % 100;
+      if (n >= 11 && n <= 13) return n + "th";
+      switch (n % 10) {
+        case 1: return n + "st";
+        case 2: return n + "nd";
+        case 3: return n + "rd";
+        default: return n + "th";
+      }
+    }
+
+    function safe(text, fallback){
+      text = (text || "").toString().trim();
+      return text === "" ? fallback : text;
+    }
+
+    // Provide theme styles: this returns colors used for left fold, ribbon, and card background.
+    function getThemeStyles(theme){
+      // Each theme defines a left-fold gradient and card background color(s)
+      const map = {
+        pink: {
+          left: ['#ff6fb5','#ffd1e8'],
+          ribbon: ['#ffd166','#ff9a66'],
+          cardBg: 'linear-gradient(180deg,#fff7fb,#fff1f6)',
+          accentColor: '#ff6fb5'
+        },
+        teal: {
+          left: ['#36c7b8','#c6f7f0'],
+          ribbon: ['#8be7d4','#36c7b8'],
+          cardBg: 'linear-gradient(180deg,#f6fffb,#e6fff9)',
+          accentColor: '#36c7b8'
+        },
+        gold: {
+          left: ['#ffd166','#ffecb3'],
+          ribbon: ['#ffd166','#ff9a66'],
+          cardBg: 'linear-gradient(180deg,#fffaf0,#fff6e8)',
+          accentColor: '#c48b00'
+        },
+        purple: {
+          left: ['#9b7bff','#eee3ff'],
+          ribbon: ['#ffd1e8','#ff9ac8'],
+          cardBg: 'linear-gradient(180deg,#fbf7ff,#f6efff)',
+          accentColor: '#7a56ff'
+        }
+      };
+      return map[theme] || map['pink'];
+    }
+
+    // Generate a playful message
+    function generateFunnyMessage(name, age, hobby){
+      const a = age > 0 ? ordinal(age) : "ageless";
+      const shortHobby = hobby.split(/[,;]/)[0].split(" ").slice(0,3).join(" ");
+      const templates = [
+        `Happy ${a}, ${name}! At this point your ${shortHobby} skills are basically a national treasure — please sign autographs.`,
+        `${name}, ${age} looks fantastic on you. Keep ${shortHobby}ing like the legend you are (side effects may include cake).`,
+        `Congrats ${name}! ${age} years young and still out-hobbying the competition. Your ${shortHobby} game is suspiciously impressive.`,
+        `Happy birthday ${name}! You're now ${a}. If ${shortHobby} were an Olympic sport, they'd invent a whole new medal just for you.`,
+        `Woohoo ${name} — ${age}! May your ${shortHobby} bring you joy, cake, and the occasional applause from confused neighbors.`,
+        `Hey ${name}, welcome to level ${age}! Power-ups unlocked: extra cake, more laughs, and advanced ${shortHobby} moves.`,
+        `${name}, age ${age} and still mastering the art of ${shortHobby}. Most importantly: cake before chores.`,
+        `Cheers ${name}! ${age} years of brilliance and a lifetime of ${shortHobby}-related shenanigans ahead. Party responsibly-ish.`
+      ];
+      return templates[Math.floor(Math.random()*templates.length)];
+    }
+
+    // Create the card DOM element. We add download buttons and apply the selected theme + icon.
+    function createCardElement(name, age, hobby, message, theme, icon){
+      const styles = getThemeStyles(theme);
+
+      const card = document.createElement('article');
+      card.className = 'card';
+      // Apply card background based on theme
+      card.style.background = styles.cardBg;
+
+      // ribbon
+      const ribbon = document.createElement('div');
+      ribbon.className = 'ribbon';
+      ribbon.textContent = 'From: Birthday Card Buddy';
+      ribbon.style.background = `linear-gradient(90deg, ${styles.ribbon[0]}, ${styles.ribbon[1]})`;
+      card.appendChild(ribbon);
+
+      // left fold with chosen icon
+      const left = document.createElement('div');
+      left.className = 'left-fold';
+      left.textContent = icon || '🎉';
+      left.style.background = `linear-gradient(135deg, ${styles.left[0]}, ${styles.left[1]})`;
+      card.appendChild(left);
+
+      // inner content
+      const inner = document.createElement('div');
+      inner.className = 'inner';
+
+      const title = document.createElement('h4');
+      title.textContent = `Dear ${name},`;
+      title.style.color = styles.accentColor;
+      inner.appendChild(title);
+
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      meta.textContent = `${age} years old • lover of ${hobby}`;
+      inner.appendChild(meta);
+
+      const msg = document.createElement('div');
+      msg.className = 'message';
+      msg.textContent = message;
+      inner.appendChild(msg);
+
+      // footer: timestamp + download buttons
+      const footer = document.createElement('div');
+      footer.className = 'muted-small';
+      const now = new Date();
+      const timeSpan = document.createElement('span');
+      timeSpan.textContent = `Created ${now.toLocaleString()}`;
+      footer.appendChild(timeSpan);
+
+      const buttonWrap = document.createElement('div');
+      buttonWrap.className = 'download-btns';
+
+      const btnPng = document.createElement('button');
+      btnPng.type = 'button';
+      btnPng.textContent = 'Download PNG';
+      btnPng.title = 'Download this card as a PNG image';
+
+      const btnPdf = document.createElement('button');
+      btnPdf.type = 'button';
+      btnPdf.textContent = 'Download PDF';
+      btnPdf.title = 'Download this card as a PDF';
+
+      // Small "copy" button to copy message to clipboard (nice extra)
+      const btnCopy = document.createElement('button');
+      btnCopy.type = 'button';
+      btnCopy.textContent = 'Copy Text';
+      btnCopy.title = 'Copy card message text to clipboard';
+
+      buttonWrap.appendChild(btnPng);
+      buttonWrap.appendChild(btnPdf);
+      buttonWrap.appendChild(btnCopy);
+      footer.appendChild(buttonWrap);
+
+      inner.appendChild(footer);
+      card.appendChild(inner);
+
+      // Hook up download and copy handlers (defined below)
+      btnPng.addEventListener('click', () => downloadCardAsPNG(card, `${name.replace(/\s+/g,'_')}_card.png`));
+      btnPdf.addEventListener('click', () => downloadCardAsPDF(card, `${name.replace(/\s+/g,'_')}_card.pdf`));
+      btnCopy.addEventListener('click', () => {
+        navigator.clipboard?.writeText(message).then(() => {
+          btnCopy.textContent = 'Copied!';
+          setTimeout(()=> btnCopy.textContent = 'Copy Text', 1200);
+        }).catch(()=> {
+          alert('Could not copy to clipboard. Select and copy manually.');
+        });
+      });
+
+      return card;
+    }
+
+    // Use html2canvas to render the card to a canvas and download as PNG
+    function downloadCardAsPNG(cardElement, filename){
+      // To get a clean image, temporarily increase scale for better resolution
+      const opts = {
+        backgroundColor: null, // keep card's own background
+        scale: 2
+      };
+      // Show a small visual feedback by disabling button(s) while rendering
+      html2canvas(cardElement, opts).then(canvas => {
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL('image/png');
+        link.download = filename || 'card.png';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      }).catch(err => {
+        console.error(err);
+        alert('Sorry, could not create PNG. Try again.');
+      });
+    }
+
+    // Use html2canvas + jsPDF to create a PDF with the captured card image
+    function downloadCardAsPDF(cardElement, filename){
+      const opts = { backgroundColor: null, scale: 2 };
+      html2canvas(cardElement, opts).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+
+        // jsPDF is provided by the UMD bundle (window.jspdf)
+        const { jsPDF } = window.jspdf || {};
+        if (!jsPDF) {
+          alert('PDF library not loaded. Please check your internet connection.');
+          return;
+        }
+
+        // Create a PDF using points (pt). We'll fit the image to page width with margins.
+        const doc = new jsPDF('p','pt','a4');
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const pageHeight = doc.internal.pageSize.getHeight();
+
+        const margin = 20;
+        // Fit by width; if taller than page, scale down preserving aspect ratio and possibly add pages
+        const imgWidth = pageWidth - margin * 2;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        if (imgHeight <= pageHeight - margin * 2) {
+          doc.addImage(imgData, 'PNG', margin, margin, imgWidth, imgHeight);
+        } else {
+          // If the image is taller than one page, scale to page height and center
+          const scaledHeight = pageHeight - margin * 2;
+          const scaledWidth = (canvas.width * scaledHeight) / canvas.height;
+          doc.addImage(imgData, 'PNG', (pageWidth - scaledWidth)/2, margin, scaledWidth, scaledHeight);
+        }
+
+        doc.save(filename || 'card.pdf');
+
+      }).catch(err => {
+        console.error(err);
+        alert('Sorry, could not create PDF. Try again.');
+      });
+    }
+
+    // UI wiring
+    const createBtn = document.getElementById('createBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const cardsArea = document.getElementById('cardsArea');
+
+    function removeNoCardsHint(){
+      // remove the initial hint if present
+      const hint = cardsArea.querySelector('div');
+      if (hint && hint.textContent && hint.textContent.includes('No cards yet')) {
+        hint.remove();
+      }
+    }
+
+    createBtn.addEventListener('click', () => {
+      const nameInput = document.getElementById('name').value;
+      const ageInput = document.getElementById('age').value;
+      const hobbyInput = document.getElementById('hobby').value;
+      const icon = document.getElementById('icon').value;
+      const theme = document.getElementById('theme').value;
+
+      const name = safe(nameInput, 'Friend');
+      const age = parseInt(ageInput, 10) || 'Ageless';
+      const hobby = safe(hobbyInput, 'having fun');
+
+      const message = generateFunnyMessage(name, (typeof age === 'number') ? age : 0, hobby);
+
+      const cardEl = createCardElement(name, age, hobby, message, theme, icon);
+
+      // Prepend newest card to top of stack
+      removeNoCardsHint();
+      cardsArea.prepend(cardEl);
+      cardsArea.scrollTop = 0;
+
+      // quick visual flash
+      cardEl.animate([{boxShadow:'0 10px 40px rgba(255,111,181,0.18)'},{boxShadow:'0 10px 30px rgba(12,12,12,0.06)'}], {duration:500});
+
+      // clear inputs
+      document.getElementById('name').value = '';
+      document.getElementById('age').value = '';
+      document.getElementById('hobby').value = '';
+      document.getElementById('name').focus();
+    });
+
+    clearBtn.addEventListener('click', () => {
+      if (!confirm('Clear all created cards? This cannot be undone.')) return;
+      cardsArea.innerHTML = '<div style="text-align:center;color:var(--muted);padding-top:30px;">No cards yet — create one on the left!</div>';
+    });
+
+    // Allow pressing Enter in hobby input to submit quickly
+    document.getElementById('hobby').addEventListener('keydown', (e)=>{
+      if (e.key === 'Enter') {
+        createBtn.click();
+        e.preventDefault();
+      }
+    });
+
+    // Optional: small improvement — show theme swatch in the select (some browsers support)
+    // Not all browsers render data-swatch; we keep it simple for broad compatibility.
+  </script>
+</body>
+</html>
